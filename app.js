@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var config = require('./config');
 
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
@@ -25,7 +26,7 @@ mongoose.Promise = require('bluebird');
 const Dishes = require('./models/dishes');
 
 // Connection URL
-const url = 'mongodb://localhost:27017/conFusion';
+const url = config.mongoUrl;
 const connect = mongoose.connect(url, {
     useMongoClient: true
     /* other options */
