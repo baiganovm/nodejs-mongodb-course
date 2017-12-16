@@ -5,13 +5,13 @@ require('mongoose-currency').loadType(mongoose);
 var Currency = mongoose.Types.Currency;
 
 var commentSchema = new Schema({
-    rating:  {
+    rating: {
         type: Number,
         min: 1,
         max: 5,
         required: true
     },
-    comment:  {
+    comment: {
         type: String,
         required: true
     },
@@ -53,10 +53,10 @@ var dishSchema = new Schema({
     },
     featured: {
         type: Boolean,
-        default:false
+        default: false
     },
-    comments:[commentSchema]
-}, { usePushEach: true },{
+    comments: [commentSchema]
+}, {usePushEach: true}, {
     timestamps: true
 });
 
