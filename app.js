@@ -1,22 +1,23 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var config = require('./config');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const config = require('./config');
 
-var session = require('express-session');
-var FileStore = require('session-file-store')(session);
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 
-var passport = require('passport');
-var authenticate = require('./authenticate');
+const passport = require('passport');
+const authenticate = require('./authenticate');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var dishRouter = require('./routes/dishRouter');
-var promoRouter = require('./routes/promoRouter');
-var leaderRouter = require('./routes/leaderRouter');
+const index = require('./routes/index');
+const users = require('./routes/users');
+const dishRouter = require('./routes/dishRouter');
+const promoRouter = require('./routes/promoRouter');
+const leaderRouter = require('./routes/leaderRouter');
+const uploadRouter = require('./routes/uploadRouter');
 
 var app = express();
 
@@ -67,7 +68,7 @@ app.use(passport.initialize());
 
 app.use('/', index);
 app.use('/users', users);
-
+app.use('/imageUpload',uploadRouter);
 
 /*function auth(req, res, next) {
     console.log(req.user);
