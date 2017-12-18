@@ -18,6 +18,7 @@ const dishRouter = require('./routes/dishRouter');
 const promoRouter = require('./routes/promoRouter');
 const leaderRouter = require('./routes/leaderRouter');
 const uploadRouter = require('./routes/uploadRouter');
+const favoriteRouter = require('./routes/favoriteRouter');
 
 var app = express();
 
@@ -68,7 +69,7 @@ app.use(passport.initialize());
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/imageUpload',uploadRouter);
+app.use('/imageUpload', uploadRouter);
 
 /*function auth(req, res, next) {
     console.log(req.user);
@@ -101,6 +102,7 @@ app.use('/users', users);
 app.use('/dishes', dishRouter);
 app.use('/promotions', promoRouter);
 app.use('/leaders', leaderRouter);
+app.use('/favorites', favoriteRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

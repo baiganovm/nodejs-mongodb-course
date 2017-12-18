@@ -29,7 +29,8 @@ var leaderSchema = new Schema({
         default: false
     }
 }, {
-    timestamps: true
+    timestamps: true,
+    usePushEach: true
 });
 
 var Leaders = mongoose.model('Leaders', leaderSchema);
